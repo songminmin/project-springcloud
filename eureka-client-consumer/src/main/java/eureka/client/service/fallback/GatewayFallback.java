@@ -8,7 +8,7 @@ import eureka.client.service.feign.GatewayFeignService;
 public class GatewayFallback implements GatewayFeignService{
 
 	@Override
-	public String addGateway(String id, String path, String targetIpPort, Integer replenishRate,
+	public String addGateway(String id, String path, Integer replenishRate,
 			Integer burstCapacity) {
 		return "fallback addGateway";
 	}

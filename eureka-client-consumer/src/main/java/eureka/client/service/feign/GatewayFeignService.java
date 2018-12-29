@@ -12,7 +12,7 @@ public interface GatewayFeignService {
 	
 	@RequestMapping(value="/gateway", method= RequestMethod.POST)
     public String addGateway(@RequestParam(value="id") String id, @RequestParam(value="path") String path, 
-    		@RequestParam(value="targetIpPort") String targetIpPort, @RequestParam(value="replenishRate") Integer replenishRate, 
+    		@RequestParam(value="replenishRate") Integer replenishRate, 
     		@RequestParam(value="burstCapacity") Integer burstCapacity);
 	
 }

@@ -14,7 +14,6 @@ public class GatewayConsumerController {
 	@Autowired
 	private GatewayFeignService gatewayFeignService;
 	
-	private final static String TARGET_IP_PORT = "http://localhost:7900";
 	private final static String SERVICE_ID = "serviceId_";
 	private final static String PATH = "/path";
 	
@@ -22,7 +21,7 @@ public class GatewayConsumerController {
 	public Object addGateway(String id, Integer replenishRate, Integer burstCapacity){
 		String serviceId = SERVICE_ID + id;
 		String path = PATH + id;
-		gatewayFeignService.addGateway(serviceId, path, TARGET_IP_PORT, replenishRate, burstCapacity);
+		gatewayFeignService.addGateway(serviceId, path, replenishRate, burstCapacity);
 		return "addOk";
 	}
 	

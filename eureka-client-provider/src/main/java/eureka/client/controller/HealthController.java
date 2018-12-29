@@ -35,7 +35,7 @@ public class HealthController {
 	
 	@GetMapping("/{pathId}")
 	public String showPathId(@PathVariable("pathId") String pathId){
-		return pathId;
+		return "7900---" + pathId;
 	}
 	
 	@GetMapping(value = "/hello")

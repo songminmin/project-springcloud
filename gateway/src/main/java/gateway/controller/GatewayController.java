@@ -16,7 +16,7 @@ public class GatewayController {
 	
 	@PostMapping
 	public Object addGateway(String id, String path, String targetIpPort, Integer replenishRate, Integer burstCapacity){
-		dynamicRouteService.addGateway(id, path, targetIpPort, replenishRate, burstCapacity);
+		dynamicRouteService.addGateway(id, path, replenishRate, burstCapacity);
 		return "addOk";
 	}
 	
