@@ -1,0 +1,16 @@
+server:
+  port: 9040
+  
+spring:
+  redis:
+    host: 192.168.130.11
+    port: 6379
+    database: 3
+  application:
+    name: gateway
+eureka: 
+  client: 
+    service-url: 
+      defaultZoon: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
