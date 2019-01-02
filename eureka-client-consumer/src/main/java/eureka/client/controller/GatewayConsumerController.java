@@ -25,4 +25,13 @@ public class GatewayConsumerController {
 		return "addOk";
 	}
 	
+	@GetMapping(value = "/batch")
+	public Object addGateway(Integer num, Integer replenishRate, Integer burstCapacity){
+		for(int i = 0; i < num; i++){
+			String serviceId = SERVICE_ID + i;
+			String path = PATH + i;
+			gatewayFeignService.addGateway(serviceId, path, replenishRate, burstCapacity);
+		}
+		return "addOk";
+	}
 }
