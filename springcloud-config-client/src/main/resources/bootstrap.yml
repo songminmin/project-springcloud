@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      profile: dev
+      label: master
+      uri: http://localhost:8760/
+      fail-fast: true
+      discovery:
+        enabled: true # 表示开启通过服务名来访问config-server
+        service-id: config-server # 表示注册中心config-server的服务名
+# 服务注册发现配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+# 动态刷新配置 ---需要忽略权限拦截
+management:
+  security:
+    enabled: false
+  endpoints:
+    web:
+      exposure:
+        include: refresh # refresh,health,info
