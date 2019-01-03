@@ -43,5 +43,6 @@
 		<module>eureka-client-provider</module>
 		<module>eureka-client-consumer</module>
 		<module>gateway</module>
+		<module>eureka-client-consumer-ribbon</module>
 	</modules>
 </project>
