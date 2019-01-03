@@ -42,7 +42,9 @@
 		<module>eureka-server</module>
 		<module>eureka-client-provider</module>
 		<module>eureka-client-consumer-feign</module>
-		<module>gateway</module>
+		<module>springcloud-gateway</module>
 		<module>eureka-client-consumer-ribbon</module>
+		<module>springcloud-config-server</module>
+		<module>springcloud-config-client</module>
 	</modules>
 </project>

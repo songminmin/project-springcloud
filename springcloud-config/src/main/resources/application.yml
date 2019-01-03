@@ -1,0 +1,20 @@
+server:
+  port: 8760
+eureka:
+  client:
+    service-url:
+      defaultZoon: http://localhost:8761/eureka
+  instance:
+    prefer-ip-address: true
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/songminmin/project-springcloud.git
+          search-paths: properties
+          username: 387890678@qq.com
+          password: wancttyongheng0924
+          force-pull: true
