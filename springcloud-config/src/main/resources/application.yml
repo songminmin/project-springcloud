@@ -13,8 +13,7 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/songminmin/project-springcloud.git
-          search-paths: properties
+          uri: https://github.com/songminmin/project-springcloud
+          search-paths: repo
           username: 387890678@qq.com
           password: wancttyongheng0924
-          force-pull: true
