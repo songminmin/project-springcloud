@@ -12,14 +12,6 @@ public class ParamController {
 	@Value("${version}")
 	private String version;
 
-	/*@Autowired
-	private Environment environment ;*/
-
-	/*@RequestMapping("/version")
-	public String getVersion(){
-		return  this.version;
-	}*/
-
 	@RequestMapping("/version")
 	public String getVersion2() {
 		return this.version;

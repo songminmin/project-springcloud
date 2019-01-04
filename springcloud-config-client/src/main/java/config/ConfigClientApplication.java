@@ -8,7 +8,6 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
  * 配置文件名需要 ${spring.application.name}.${spring.cloud.config.profile}
  * 	    反之如果都不是对的话默认取 application.${spring.cloud.config.profile}
  * 
- * 
  * refreshUri: http://localhost:7800/actuator/refresh
  */
 @SpringBootApplication
