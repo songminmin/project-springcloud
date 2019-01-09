@@ -25,7 +25,7 @@ import com.netflix.hystrix.contrib.metrics.eventstream.HystrixMetricsStreamServl
 @ComponentScan("eureka.client")
 @EnableCircuitBreaker//打开Hystrix断路器
 @EnableHystrixDashboard
-public class EurekaConsumerClientApplication {
+public class EurekaConsumerFeignClientApplication {
 	
 	@Bean
     @LoadBalanced
@@ -45,7 +45,7 @@ public class EurekaConsumerClientApplication {
 	public static void main(String[] args) {
 //		new SpringApplicationBuilder(EurekaClientConsumerApplication.class).web(true).run(
 //                args);
-		SpringApplication.run(EurekaConsumerClientApplication.class);
+		SpringApplication.run(EurekaConsumerFeignClientApplication.class);
 	}
 
 }

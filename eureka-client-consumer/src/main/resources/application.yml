@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: songmm-feign-consumer
+    name: feign-consumer
   cloud:
     config:
       name: eureka_client,jpa

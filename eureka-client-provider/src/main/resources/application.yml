@@ -2,7 +2,7 @@ server:
   port: 7900
 spring:
   application:
-    name: gateway
+    name: provider
   cloud:
     config:
       name: eureka_client

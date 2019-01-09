@@ -3,7 +3,7 @@ server:
   
 spring:
   application:
-    name: songmm-ribbon-consumer
+    name: ribbon-consumer
   cloud:
     config:
       name: eureka_client
