@@ -3,7 +3,7 @@ spring:
     name: config-client
   cloud:
     config:
-      name: config_fresh,eureka_client
+      name: config_refresh,eureka_client
       profile: dev
       label: master
       uri: http://localhost:8760/
