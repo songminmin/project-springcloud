@@ -1,25 +1,19 @@
 server:
   port: 7901
-spring: 
-  jpa:
-    gennerate-ddl: false
-    show-sql: true
-    hibernate:
-      ddl-auto: none
-    datasource:
-      platform: h2
-      schema: 
-        classpath: schema.sql
-      data: 
-        classpath: data.sql
+
+spring:
   application:
-    name: songmm-consumer
-eureka: 
-  client: 
-    service-url: 
-      defaultZoon: http://localhost:8761/eureka
-  instance:
-    prefer-ip-address: true
+    name: songmm-feign-consumer
+  cloud:
+    config:
+      name: eureka_client,jpa
+      profile: dev
+      label: master
+      uri: http://localhost:8760/
+      fail-fast: true
+      discovery:
+        enabled: true # 表示开启通过服务名来访问config-server
+        service-id: config-server # 表示注册中心config-server的服务名
 feign:
   hystrix:
     enabled: true
