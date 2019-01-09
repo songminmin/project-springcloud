@@ -9,11 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class ParamController {
 
-	@Value("${version}")
+//	@Value("${version}")
+    @Value("${test.version}")
 	private String version;
 
 	@RequestMapping("/version")
-	public String getVersion2() {
+	public String getVersion() {
 		return this.version;
 	}
 
