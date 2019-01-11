@@ -1,0 +1,31 @@
+server:
+  port: 7700
+spring:
+  application:
+    name: kafka-producer
+  cloud:
+    config:
+      name: eureka_client
+      profile: dev
+      label: master
+      uri: http://localhost:8760/
+      fail-fast: true
+      discovery:
+        enabled: true # 表示开启通过服务名来访问config-server
+        service-id: config-server # 表示注册中心config-server的服务名
+    instance-count: 1
+    instance-index: 0
+    stream:
+      kafka:
+        binder:
+          brokers: localhost:9092
+          zk-nodes: localhost:2182
+          auto-add-partitions: true
+          auto-create-topics: true
+          min-partition-count: 1
+        bindings:
+          output:
+            destination: mytopic
+            content-type: text/plain
+            producer:
+              partitionCount: 1

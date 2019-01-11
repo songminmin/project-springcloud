@@ -46,5 +46,6 @@
 		<module>springcloud-gateway</module>
 		<module>springcloud-config-server</module>
 		<module>springcloud-config-client</module>
+		<module>kafka-producer</module>
 	</modules>
 </project>
