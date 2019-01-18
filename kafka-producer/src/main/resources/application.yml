@@ -1,5 +1,6 @@
 server:
   port: 7700
+  
 spring:
   application:
     name: kafka-producer
@@ -13,19 +14,24 @@ spring:
       discovery:
         enabled: true # 表示开启通过服务名来访问config-server
         service-id: config-server # 表示注册中心config-server的服务名
-    instance-count: 1
-    instance-index: 0
     stream:
+      bindings:
+        #配置自己定义的通道与哪个中间件交互
+        topic_input: #ShopChannel里Input和Output的值
+          destination: myTopic #目标主题
+          group: group-1
+          consumer:
+            concurrency: 1
+            partitioned: false
+        topic_output:
+          destination: myTopic
+          producer:
+            partitionCount: 1
+      default-binder: kafka #默认的binder是kafka
       kafka:
         binder:
-          brokers: localhost:9092
-          zk-nodes: localhost:2182
+          brokers: localhost:9092 #kafka服务地址
+          zk-nodes: localhost:2181
           auto-add-partitions: true
           auto-create-topics: true
           min-partition-count: 1
-        bindings:
-          output:
-            destination: mytopic
-            content-type: text/plain
-            producer:
-              partitionCount: 1
