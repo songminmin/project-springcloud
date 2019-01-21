@@ -7,13 +7,23 @@ import org.springframework.messaging.SubscribableChannel;
 
 public interface TopicChannel {
 	
-	String TOPIC_OUTPUT = "topic_output";
+	String TOPIC_OUTPUT_A = "producerA";
 	
-	String TOPIC_INPUT = "topic_input";
+	String TOPIC_OUTPUT_B = "producerB";
 	
-	@Output(TOPIC_OUTPUT)
-	MessageChannel producerTopicMessage();
+	String TOPIC_INPUT_A = "consumerA";
+	
+	String TOPIC_INPUT_B = "consumerB";
+	
+	@Output(TOPIC_OUTPUT_A)
+	MessageChannel producerTopicMessageA();
+	
+	@Output(TOPIC_OUTPUT_B)
+	MessageChannel producerTopicMessageB();
 
-	@Input(TOPIC_INPUT)
-	SubscribableChannel consumerTopicMessage();
+	@Input(TOPIC_INPUT_A)
+	SubscribableChannel consumerTopicMessageA();
+	
+	@Input(TOPIC_INPUT_B)
+	SubscribableChannel consumerTopicMessageB();
 }

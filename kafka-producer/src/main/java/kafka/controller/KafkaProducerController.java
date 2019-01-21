@@ -23,18 +23,32 @@ public class KafkaProducerController {
 	/*@Autowired
 	private Source source;*/
 
-	@Resource(name = TopicChannel.TOPIC_OUTPUT)
-	private MessageChannel channel;
+	@Resource(name = TopicChannel.TOPIC_OUTPUT_A)
+	private MessageChannel channelA;
+	
+	@Resource(name = TopicChannel.TOPIC_OUTPUT_B)
+	private MessageChannel channelB;
 
-	@PostMapping
-	public String producerKafka(@RequestBody String body){
-		boolean isSendSuccess = channel.send(MessageBuilder.withPayload(body).build());
+	@PostMapping("/A")
+	public String producerKafkaA(@RequestBody String body){
+		boolean isSendSuccess = channelA.send(MessageBuilder.withPayload(body).build());
 		return isSendSuccess ? "发送成功" : "发送失败";
 	}
 	
-	@StreamListener(TopicChannel.TOPIC_INPUT)
-    public void receive(Message<String> message) {
-        System.out.println(message.getPayload());
+	@PostMapping("/B")
+	public String producerKafkaB(@RequestBody String body){
+		boolean isSendSuccess = channelB.send(MessageBuilder.withPayload(body).build());
+		return isSendSuccess ? "发送成功" : "发送失败";
+	}
+	
+	@StreamListener(TopicChannel.TOPIC_INPUT_A)
+    public void receiveA(Message<String> message) {
+        System.out.println("ConumserA receive topic: " + message.getPayload());
+    }
+	
+	@StreamListener(TopicChannel.TOPIC_INPUT_B)
+    public void receiveB(Message<String> message) {
+        System.out.println("ConumserB receive topic: " + message.getPayload());
     }
 
 }

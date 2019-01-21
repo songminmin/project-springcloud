@@ -14,24 +14,29 @@ spring:
       discovery:
         enabled: true # 表示开启通过服务名来访问config-server
         service-id: config-server # 表示注册中心config-server的服务名
-    stream:
-      bindings:
-        #配置自己定义的通道与哪个中间件交互
-        topic_input: #ShopChannel里Input和Output的值
-          destination: myTopic #目标主题
-          group: group-1
-          consumer:
-            concurrency: 1
-            partitioned: false
-        topic_output:
-          destination: myTopic
-          producer:
-            partitionCount: 1
-      default-binder: kafka #默认的binder是kafka
-      kafka:
-        binder:
-          brokers: localhost:9092 #kafka服务地址
-          zk-nodes: localhost:2181
-          auto-add-partitions: true
-          auto-create-topics: true
-          min-partition-count: 1
+spring.cloud.stream.kafka.binder:
+  brokers: 127.0.0.1:9092
+  zk-nodes: 127.0.0.1:2181
+  minPartitionCount: 1
+  autoCreateTopics: true
+  autoAddPartitions: true
+spring.cloud.stream.bindings.producerA:
+  destination: topic_a
+  group: group-1
+  consumer:
+    concurrency: 1
+    partitioned: false
+spring.cloud.stream.bindings.producerB:
+  destination: topic_b
+  group: group-1
+  consumer:
+    concurrency: 1
+    partitioned: false
+spring.cloud.stream.bindings.consumerA:
+  destination: topic_a
+  producer: 
+    partitionCount: 1 
+spring.cloud.stream.bindings.consumerB:
+  destination: topic_b
+  producer: 
+    partitionCount: 1    
